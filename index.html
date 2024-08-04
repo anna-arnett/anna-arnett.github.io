@@ -135,11 +135,17 @@
         .details {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease-out;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
         }
         .details.open {
             max-height: 500px; /* Adjust as needed */
-            transition: max-height 0.5s ease-in;
+            transition: max-height 0.5s ease-in, padding 0.5s ease-in;
+            padding-top: 1rem;
+        }
+        .details hr {
+            margin: 1rem 0;
+            border: 0;
+            border-top: 1px solid var(--primary-color);
         }
         ul li a {
             text-decoration: none;
@@ -190,16 +196,18 @@
             <h2>Experience</h2>
             <ul>
                 <li>
-                    Research Internship at the University of Notre Dame - Summer 2024
+                    Internship at Company XYZ - Summer 2023
                     <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     <div class="details">
-                        <p> This summer, I had the chance to collaborate with amazing Notre Dame professors and PhD students to study Bayesian neural networks. BNNs provide a measure of uncertainty in their predictions, which lets us know how confident the model is in its output. I helped to develop and train models using PyTorch and TensorFlow, focusing on adding Bayesian layers to Convolutional neural networks.  </p>
+                        <hr>
+                        <p>Worked on developing a new feature for the company's main product, which involved...</p>
                     </div>
                 </li>
                 <li>
                     Research Assistant at Notre Dame - Fall 2022
                     <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     <div class="details">
+                        <hr>
                         <p>Assisted in research on machine learning algorithms, focusing on...</p>
                     </div>
                 </li>
@@ -207,6 +215,7 @@
                     Teaching Assistant for Intro to Programming - Spring 2022
                     <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     <div class="details">
+                        <hr>
                         <p>Helped students understand basic programming concepts, graded assignments, and...</p>
                     </div>
                 </li>
@@ -266,6 +275,7 @@
     </script>
 </body>
 </html>
+
 
 
 

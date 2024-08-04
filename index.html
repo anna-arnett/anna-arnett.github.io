@@ -90,11 +90,10 @@
             color: var(--primary-color);
             margin: 0 10px;
             font-size: 1.5rem;
-            transition: color 0.3s, transform 0.3s;
+            transition: color 0.3s;
         }
         .hero .social-icons a:hover {
             color: var(--link-hover-color);
-            transform: scale(1.2);
         }
         .section {
             margin-bottom: 2rem;
@@ -127,9 +126,19 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s;
+            cursor: pointer;
         }
         ul li:hover {
             background: var(--accent-color);
+        }
+        .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .details.open {
+            max-height: 500px; /* Adjust as needed */
+            transition: max-height 0.5s ease-in;
         }
         ul li a {
             text-decoration: none;
@@ -173,9 +182,24 @@
         <section id="experience" class="section">
             <h2>Experience</h2>
             <ul>
-                <li>Internship at Company XYZ - Summer 2023</li>
-                <li>Research Assistant at Notre Dame - Fall 2022</li>
-                <li>Teaching Assistant for Intro to Programming - Spring 2022</li>
+                <li>
+                    Internship at Company XYZ - Summer 2023
+                    <div class="details">
+                        <p>Worked on developing a new feature for the company's main product, which involved...</p>
+                    </div>
+                </li>
+                <li>
+                    Research Assistant at Notre Dame - Fall 2022
+                    <div class="details">
+                        <p>Assisted in research on machine learning algorithms, focusing on...</p>
+                    </div>
+                </li>
+                <li>
+                    Teaching Assistant for Intro to Programming - Spring 2022
+                    <div class="details">
+                        <p>Helped students understand basic programming concepts, graded assignments, and...</p>
+                    </div>
+                </li>
             </ul>
         </section>
         <section id="projects" class="section">
@@ -210,6 +234,14 @@
 
             sections.forEach(section => {
                 observer.observe(section);
+            });
+
+            const items = document.querySelectorAll('ul li');
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const details = item.querySelector('.details');
+                    details.classList.toggle('open');
+                });
             });
         });
     </script>

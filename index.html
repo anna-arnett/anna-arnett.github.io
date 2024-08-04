@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anna Arnett - Personal Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
             --primary-color: #1B3327;
@@ -82,6 +83,18 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 1rem;
         }
+        .hero .social-icons {
+            margin-top: 1rem;
+        }
+        .hero .social-icons a {
+            color: var(--primary-color);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .hero .social-icons a:hover {
+            color: var(--link-hover-color);
+        }
         .section {
             margin-bottom: 2rem;
             opacity: 0;
@@ -151,6 +164,10 @@
             <img src="IMG_6070.jpg" alt="profile picture" />
             <h1>Anna Arnett</h1>
             <p>Hello! I am a sophomore Computer Science student at Notre Dame.</p>
+            <div class="social-icons">
+                <a href="https://github.com/anna-arnett" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/annaarnett4/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
         </section>
         <section id="experience" class="section">
             <h2>Experience</h2>
@@ -197,6 +214,7 @@
     </script>
 </body>
 </html>
+
 
 
 

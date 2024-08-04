@@ -127,6 +127,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s;
             cursor: pointer;
+            position: relative;
         }
         ul li:hover {
             background: var(--accent-color);
@@ -148,6 +149,12 @@
         }
         ul li a:hover {
             color: var(--primary-color);
+        }
+        .toggle-icon {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.25rem;
         }
         footer {
             background-color: var(--primary-color);
@@ -184,18 +191,21 @@
             <ul>
                 <li>
                     Internship at Company XYZ - Summer 2023
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     <div class="details">
                         <p>Worked on developing a new feature for the company's main product, which involved...</p>
                     </div>
                 </li>
                 <li>
                     Research Assistant at Notre Dame - Fall 2022
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     <div class="details">
                         <p>Assisted in research on machine learning algorithms, focusing on...</p>
                     </div>
                 </li>
                 <li>
                     Teaching Assistant for Intro to Programming - Spring 2022
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     <div class="details">
                         <p>Helped students understand basic programming concepts, graded assignments, and...</p>
                     </div>
@@ -240,13 +250,23 @@
             items.forEach(item => {
                 item.addEventListener('click', () => {
                     const details = item.querySelector('.details');
-                    details.classList.toggle('open');
+                    const icon = item.querySelector('.toggle-icon i');
+                    if (details.classList.contains('open')) {
+                        details.classList.remove('open');
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    } else {
+                        details.classList.add('open');
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
                 });
             });
         });
     </script>
 </body>
 </html>
+
 
 
 

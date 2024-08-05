@@ -8,12 +8,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #1B3327;
+            --secondary-color: #C7DCD1;
+            --background-color: #FFFFFF;
+            --text-color: #333;
+            --accent-color: #A3B5A6;
+            --link-hover-color: #1B3327;
+        }
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: #fff;
+            color: var(--text-color);
+            background-color: var(--background-color);
         }
         header {
             text-align: center;
@@ -38,13 +46,14 @@
             font-size: 0.875rem;
         }
         nav a {
-            color: #333;
+            color: var(--text-color);
             text-decoration: none;
             margin: 0 10px;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
         }
         nav a:hover {
-            color: #1B3327;
+            color: var(--link-hover-color);
+            transform: scale(1.1);
         }
         .container {
             max-width: 700px;
@@ -61,7 +70,7 @@
         .section h2 {
             font-family: 'Lora', serif;
             font-size: 1.75rem;
-            color: #1B3327;
+            color: var(--primary-color);
             margin-bottom: 15px;
         }
         .section p {
@@ -71,24 +80,54 @@
         }
         .section a {
             text-decoration: none;
-            color: #1B3327;
+            color: var(--primary-color);
             transition: color 0.3s;
         }
         .section a:hover {
-            color: #333;
+            color: var(--accent-color);
+        }
+        .experience-item {
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .experience-item:hover {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+        .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        }
+        .details.open {
+            max-height: 500px; /* Adjust as needed */
+            transition: max-height 0.5s ease-in, padding 0.5s ease-in;
+            padding-top: 1rem;
+        }
+        .details hr {
+            margin: 1rem 0;
+            border: 0;
+            border-top: 1px solid var(--primary-color);
+        }
+        .toggle-icon {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.25rem;
         }
         .social-icons {
             text-align: center;
             padding: 20px 0;
         }
         .social-icons a {
-            color: #333;
+            color: var(--text-color);
             margin: 0 10px;
             font-size: 1.25rem;
             transition: color 0.3s;
         }
         .social-icons a:hover {
-            color: #1B3327;
+            color: var(--link-hover-color);
         }
         footer {
             text-align: center;
@@ -116,9 +155,33 @@
         </section>
         <section id="experience" class="section">
             <h2>Experience</h2>
-            <p>Internship at Company XYZ - Summer 2023</p>
-            <p>Research Assistant at Notre Dame - Fall 2022</p>
-            <p>Teaching Assistant for Intro to Programming - Spring 2022</p>
+            <div class="experience-item">
+                <p>Internship at Company XYZ - Summer 2023
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                </p>
+                <div class="details">
+                    <hr>
+                    <p>Worked on developing a new feature for the company's main product, which involved...</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <p>Research Assistant at Notre Dame - Fall 2022
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                </p>
+                <div class="details">
+                    <hr>
+                    <p>Assisted in research on machine learning algorithms, focusing on...</p>
+                </div>
+            </div>
+            <div class="experience-item">
+                <p>Teaching Assistant for Intro to Programming - Spring 2022
+                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                </p>
+                <div class="details">
+                    <hr>
+                    <p>Helped students understand basic programming concepts, graded assignments, and...</p>
+                </div>
+            </div>
         </section>
         <section id="projects" class="section">
             <h2>Projects</h2>
@@ -134,6 +197,27 @@
     <footer>
         <p>© 2024 Anna Arnett. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const experienceItems = document.querySelectorAll('.experience-item');
+            experienceItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const details = item.querySelector('.details');
+                    const icon = item.querySelector('.toggle-icon i');
+                    if (details.classList.contains('open')) {
+                        details.classList.remove('open');
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    } else {
+                        details.classList.add('open');
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 

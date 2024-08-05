@@ -25,18 +25,27 @@
             overflow-x: hidden;
         }
         header {
-            background-image: url('peachpic.jpg');
+            background-image: url('https://source.unsplash.com/1600x900/?nature,waterfall');
             background-size: cover;
             background-position: center;
             color: var(--background-color);
-            padding: 2rem;
+            padding: 4rem 2rem;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
         }
         nav {
             display: flex;
             justify-content: center;
-            background-color: var(--primary-color);
+            background-color: rgba(27, 51, 39, 0.9);
             padding: 1rem 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -69,15 +78,6 @@
             margin-bottom: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
         }
         .hero img {
             width: 200px;
@@ -161,7 +161,7 @@
             font-size: 1.25rem;
         }
         footer {
-            background-color: var(--primary-color);
+            background-color: rgba(27, 51, 39, 0.9);
             color: var(--background-color);
             text-align: center;
             padding: 1rem;
@@ -174,6 +174,7 @@
 <body>
     <header>
         <h1>Anna Arnett</h1>
+        <p>Hello! I am a sophomore Computer Science student at Notre Dame.</p>
     </header>
     <nav>
         <a href="#home">Home</a>
@@ -183,8 +184,6 @@
     <div class="container">
         <section id="home" class="hero section visible">
             <img src="IMG_6070.jpg" alt="profile picture" />
-            <h1>Anna Arnett</h1>
-            <p>Hello! I am a sophomore Computer Science student at Notre Dame.</p>
             <div class="social-icons">
                 <a href="https://github.com/anna-arnett" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/annaarnett4/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -281,6 +280,7 @@
     </script>
 </body>
 </html>
+
 
 
 

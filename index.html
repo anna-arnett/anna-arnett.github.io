@@ -14,7 +14,7 @@
             --text-color: #1B3327;
             --accent-color: #C7DCD1;
             --link-hover-color: #1B3327;
-            --highlight-color: #4CAF50;
+            --highlight-color: #A3B5A6;
         }
         body {
             font-family: 'Roboto', sans-serif;
@@ -130,10 +130,12 @@
             cursor: pointer;
             position: relative;
         }
-        ul li:hover, ul li.open {
-            background: var(--accent-color);
-            color: var(--highlight-color);
-            font-weight: 700;
+        ul li:hover, ul li.open:hover {
+            background: var(--highlight-color);
+        }
+        ul li.open {
+            color: var(--text-color);
+            font-weight: normal;
         }
         .details {
             max-height: 0;
@@ -277,6 +279,7 @@
     </script>
 </body>
 </html>
+
 
 
 

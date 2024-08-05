@@ -5,173 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anna Arnett - Personal Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #1B3327;
-            --secondary-color: #87BBA2;
-            --background-color: #FFF4E9;
-            --text-color: #1B3327;
-            --accent-color: #C7DCD1;
-            --link-hover-color: #1B3327;
-            --highlight-color: #A3B5A6;
-        }
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            overflow-x: hidden;
+            color: #333;
+            background-color: #fff;
         }
         header {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            padding: 2rem;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 50px 20px;
+            background: #f7f7f7;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: var(--primary-color);
-            padding: 1rem 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav a {
-            color: var(--background-color);
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-            margin: 0 15px;
-            border-radius: 4px;
-            transition: background-color 0.3s, color 0.3s;
-            font-weight: 500;
-        }
-        nav a:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-        }
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-        .hero {
-            background-color: var(--secondary-color);
-            text-align: center;
-            padding: 4rem 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
             font-weight: 700;
         }
-        .hero p {
+        header p {
             font-size: 1.25rem;
-            margin-bottom: 2rem;
+            color: #666;
+            margin: 10px 0 0;
         }
-        .hero img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1rem;
+        nav {
+            text-align: center;
+            padding: 20px 0;
+            background: #333;
         }
-        .hero .social-icons {
-            margin-top: 1rem;
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            transition: color 0.3s;
         }
-        .hero .social-icons a {
-            color: var(--primary-color);
+        nav a:hover {
+            color: #1B3327;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            padding: 50px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .section h2 {
+            font-size: 2rem;
+            color: #1B3327;
+            margin-bottom: 20px;
+        }
+        .section p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .social-icons {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .social-icons a {
+            color: #333;
             margin: 0 10px;
             font-size: 1.5rem;
             transition: color 0.3s;
         }
-        .hero .social-icons a:hover {
-            color: var(--link-hover-color);
-        }
-        .section {
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        p, ul {
-            line-height: 1.6;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            background: var(--secondary-color);
-            margin: 0.5rem 0;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, color 0.3s, font-weight 0.3s;
-            cursor: pointer;
-            position: relative;
-        }
-        ul li:hover, ul li.open:hover {
-            background: var(--highlight-color);
-        }
-        ul li.open {
-            color: var(--text-color);
-            font-weight: normal;
-        }
-        .details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
-        }
-        .details.open {
-            max-height: 500px; /* Adjust as needed */
-            transition: max-height 0.5s ease-in, padding 0.5s ease-in;
-            padding-top: 1rem;
-        }
-        .details hr {
-            margin: 1rem 0;
-            border: 0;
-            border-top: 1px solid var(--primary-color);
-        }
-        .toggle-icon {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            font-size: 1.25rem;
+        .social-icons a:hover {
+            color: #1B3327;
         }
         footer {
-            background-color: var(--primary-color);
-            color: var(--background-color);
             text-align: center;
-            padding: 1rem;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            padding: 20px;
+            background: #f7f7f7;
+            font-size: 0.875rem;
+            color: #999;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Anna Arnett</h1>
+        <p>Computer Science Student at Notre Dame</p>
     </header>
     <nav>
         <a href="#home">Home</a>
@@ -179,106 +98,33 @@
         <a href="#projects">Projects</a>
     </nav>
     <div class="container">
-        <section id="home" class="hero section visible">
-            <img src="IMG_6070.jpg" alt="profile picture" />
-            <h1>Anna Arnett</h1>
-            <p>Hello! I am a sophomore Computer Science student at Notre Dame.</p>
-            <div class="social-icons">
-                <a href="https://github.com/anna-arnett" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/annaarnett4/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
+        <section id="home" class="section">
+            <h2>About Me</h2>
+            <p>Hello! I am a sophomore Computer Science student at Notre Dame. Passionate about technology, AI, and web development.</p>
         </section>
         <section id="experience" class="section">
             <h2>Experience</h2>
-            <ul>
-                <li>
-                    Internship at Company XYZ - Summer 2023
-                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
-                    <div class="details">
-                        <hr>
-                        <p>Worked on developing a new feature for the company's main product, which involved...</p>
-                    </div>
-                </li>
-                <li>
-                    Research Assistant at Notre Dame - Fall 2022
-                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
-                    <div class="details">
-                        <hr>
-                        <p>Assisted in research on machine learning algorithms, focusing on...</p>
-                    </div>
-                </li>
-                <li>
-                    Teaching Assistant for Intro to Programming - Spring 2022
-                    <span class="toggle-icon"><i class="fas fa-plus"></i></span>
-                    <div class="details">
-                        <hr>
-                        <p>Helped students understand basic programming concepts, graded assignments, and...</p>
-                    </div>
-                </li>
-            </ul>
+            <p>Internship at Company XYZ - Summer 2023</p>
+            <p>Research Assistant at Notre Dame - Fall 2022</p>
+            <p>Teaching Assistant for Intro to Programming - Spring 2022</p>
         </section>
         <section id="projects" class="section">
             <h2>Projects</h2>
-            <ul>
-                <li><a href="project1.html">Project 1: AI Chatbot</a></li>
-                <li><a href="project2.html">Project 2: Web Development Portfolio</a></li>
-                <li><a href="project3.html">Project 3: Data Analysis with Python</a></li>
-            </ul>
+            <p><a href="project1.html">Project 1: AI Chatbot</a></p>
+            <p><a href="project2.html">Project 2: Web Development Portfolio</a></p>
+            <p><a href="project3.html">Project 3: Data Analysis with Python</a></p>
         </section>
+    </div>
+    <div class="social-icons">
+        <a href="https://github.com/anna-arnett" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/annaarnett4/" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
     <footer>
         <p>© 2024 Anna Arnett. All rights reserved.</p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const sections = document.querySelectorAll('.section');
-
-            const options = {
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, options);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            const items = document.querySelectorAll('ul li');
-            items.forEach(item => {
-                item.addEventListener('click', () => {
-                    const details = item.querySelector('.details');
-                    const icon = item.querySelector('.toggle-icon i');
-                    if (details.classList.contains('open')) {
-                        details.classList.remove('open');
-                        icon.classList.remove('fa-minus');
-                        icon.classList.add('fa-plus');
-                        item.classList.remove('open');
-                    } else {
-                        details.classList.add('open');
-                        icon.classList.remove('fa-plus');
-                        icon.classList.add('fa-minus');
-                        item.classList.add('open');
-                    }
-                });
-                item.addEventListener('mouseover', () => {
-                    item.classList.add('hover');
-                });
-                item.addEventListener('mouseout', () => {
-                    item.classList.remove('hover');
-                });
-            });
-        });
-    </script>
 </body>
 </html>
+
 
 
 

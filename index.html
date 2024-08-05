@@ -14,6 +14,7 @@
             --text-color: #1B3327;
             --accent-color: #C7DCD1;
             --link-hover-color: #1B3327;
+            --highlight-color: #4CAF50;
         }
         body {
             font-family: 'Roboto', sans-serif;
@@ -125,12 +126,14 @@
             padding: 1rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, color 0.3s, font-weight 0.3s;
             cursor: pointer;
             position: relative;
         }
-        ul li:hover {
+        ul li:hover, ul li.open {
             background: var(--accent-color);
+            color: var(--highlight-color);
+            font-weight: 700;
         }
         .details {
             max-height: 0;
@@ -146,15 +149,6 @@
             margin: 1rem 0;
             border: 0;
             border-top: 1px solid var(--primary-color);
-        }
-        ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        ul li a:hover {
-            color: var(--primary-color);
         }
         .toggle-icon {
             position: absolute;
@@ -264,17 +258,26 @@
                         details.classList.remove('open');
                         icon.classList.remove('fa-minus');
                         icon.classList.add('fa-plus');
+                        item.classList.remove('open');
                     } else {
                         details.classList.add('open');
                         icon.classList.remove('fa-plus');
                         icon.classList.add('fa-minus');
+                        item.classList.add('open');
                     }
+                });
+                item.addEventListener('mouseover', () => {
+                    item.classList.add('hover');
+                });
+                item.addEventListener('mouseout', () => {
+                    item.classList.remove('hover');
                 });
             });
         });
     </script>
 </body>
 </html>
+
 
 
 
